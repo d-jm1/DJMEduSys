@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    别名配置-->
+    <typeAliases>
+        <package name="com.Pojo"/> <!-- 包扫描 -->
+    </typeAliases>
+<!--    环境配置-->
+    <environments default="test"> <!-- 默认环境设置 -->
+<!--        创建多个环境-->
+<!--        开发环境-->
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///mybatis_test?useSSL=false&amp;characterEncoding=utf-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+<!--        测试环境-->
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///mybatis_test?useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--    Mapper映射配置-->
+    <mappers>
+
+        <package name="com.Mapper"/>
+<!--        <mapper resource="com/Mapper/TeacherMapper.xml"/>-->
+    </mappers>
+</configuration>
